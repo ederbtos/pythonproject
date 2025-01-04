@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pessoas</title>
+    <link rel="stylesheet" href="{%static 'css/estilos.css'%}">
+</head>
+<body>
+<h1>Pessoa</h1>
+<table>
+    <thead>
+    <tr>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Apelido</th>
+        <th>Cargo</th>
+    </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href="{%url 'index'%}">{{pessoa.cpf}}</a></td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.apelido}}</td>
+            <td>{{pessoa.cargo}}</td>
+        </tr>
+      </tbody>
+</table>
+</body>
+</html>

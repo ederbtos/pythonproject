@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina incial</title>
+    <link rel="stylesheet" href="{%static 'css/estilos.css'%}">
+</head>
+<body>
+<center>
+    <h1>Index</h1>
+    <img src="{%static 'images/django.jpg'%}">
+<h2>{{Curso}}</h2>
+<p>{{Curso2}}</p>
+<table>
+    <thead>
+    <tr>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Apelido</th>
+        <th>Cargo</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for pessoa in pessoas %}
+        <tr>
+            <td><a href="{%url 'pessoa' pessoa.id%}">{{pessoa.cpf}}</a></td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.apelido}}</td>
+            <td>{{pessoa.cargo}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<button onclick="teste();">Clique-me</button>
+
+<script type="text/javascript" src="{% static 'js/script.js'%}"></script>
+
+</center>
+</body>
+</html>
