@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import django.heroku
 
 from django.conf.global_settings import LOGOUT_REDIRECT_URL
 
@@ -30,7 +31,7 @@ SECRET_KEY = 'django-insecure-2f#j_v5c)=c*gxin8i#ile_ffjlhmj1b-dd=74=3m(*m2d2!h(
 #Debug com valor False é igual modo produção
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.python.trening.com.br'] # www.python.trening.com.br
+ALLOWED_HOSTS = ['*'] # www.python.trening.com.br
 
 
 # Application definition
@@ -47,13 +48,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'pythonproject.urls'
@@ -130,3 +131,5 @@ LOGOUT_REDIRECT_URL = 'index'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
